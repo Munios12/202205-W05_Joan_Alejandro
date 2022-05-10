@@ -1,6 +1,6 @@
 import { join } from './join.js';
 
-describe('Given the function join ', () => {
+describe('Given the function join', () => {
     describe('When receive ["apple", 2.3], null', () => {
         test('Then should be "apple2.3"', () => {
             // Arrange
@@ -61,15 +61,16 @@ describe('Given the function join ', () => {
             expect(result).toBe(initial);
         });
     });
-
-    // EXEPTIONS
     describe('When receive undefined, ""', () => {
-        test('Then should throw an exception', () => {
+        test('Then should be ""', () => {
             // Arrange
             const testArray = undefined;
             const separator = '';
-            // Act & Assert
-            expect(() => join(testArray, separator)).toThrow(Error);
+            const initial = '';
+            // Act
+            const result = join(testArray, separator);
+            // Assert
+            expect(result).toBe(initial);
         });
     });
 });
