@@ -38,6 +38,13 @@ describe('Given the function falseLength()', () => {
             expect(() => falseLength(input)).toThrow(RangeError);
         });
     });
+
+    describe('When receive a emptyObject', () => {
+        test('Should return an excepcion', () => {
+            const input = {};
+            expect(() => falseLength(input)).toThrow(RangeError);
+        });
+    });
 });
 
 describe('Given the function falsePush()', () => {
