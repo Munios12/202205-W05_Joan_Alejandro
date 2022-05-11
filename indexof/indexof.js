@@ -22,8 +22,11 @@ export function indexOf(array, searchElement, fromIndex = 0) {
         result = -1;
         return result;
     }
+    if (fromIndex < 0) {
+        fromIndex = array.length + fromIndex;
+    }
 
-    for (let i = fromIndex ? fromIndex : 0; i < array.length; i++) {
+    for (let i = fromIndex !== 0 ? fromIndex : 0; i < array.length; i++) {
         if (array[i] === searchElement) {
             result = i;
             break;
@@ -33,10 +36,3 @@ export function indexOf(array, searchElement, fromIndex = 0) {
     }
     return result;
 }
-
-// console.log('Test_insitu:');
-// const testArray = [0, 1, 2, 3];
-// const elem = 2;
-// const inde = 3;
-// console.log(indexOf(testArray, elem));
-// console.log(indexOf(testArray, elem, inde));

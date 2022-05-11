@@ -23,6 +23,17 @@ describe('Given the function indexOf', () => {
             expect(result).toBe(expectedResult);
         });
     });
+    describe('When receive [7, 5, 9, 9], 9, -1', () => {
+        test('Then should be 3', () => {
+            // Arrange
+            const param = [[7, 5, 9, 9], 9, -2];
+            const expectedResult = 2;
+            // Act
+            const result = indexOf(...param);
+            // Assert
+            expect(result).toBe(expectedResult);
+        });
+    });
     describe('When receive index greater than array length', () => {
         test('Then should be -1', () => {
             // Arrange
