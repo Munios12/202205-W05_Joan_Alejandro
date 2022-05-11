@@ -1,89 +1,56 @@
-import { join } from './join.js';
+import { reduce } from './reduce.js';
 
-describe('Given the function join', () => {
-    describe('When receive ["apple", 2.3], null', () => {
-        test('Then should be "apple2.3"', () => {
+describe('Given the function reduce', () => {
+    describe('When receive (a,b)=>a+b, [0, 1, 2, 3]', () => {
+        test('Then should be 6', () => {
             // Arrange
-            const testArray = ['apple', 2.3];
-            const separator = null;
-            const initial = 'apple2.3';
+            const callback = (a, b) => a + b;
+            const testArray = [0, 1, 2, 3];
+            const initial = 6;
             // Act
-            const result = join(testArray, separator);
+            const result = reduce(callback, testArray);
             // Assert
             expect(result).toBe(initial);
         });
     });
-    describe('When receive ["apple", 2.3], ""', () => {
-        test('Then should be "apple2.3"', () => {
+    describe('When receive (a,b)=>a.concat(b), [[0,1],[2,3],[4,5]]', () => {
+        test('Then should be [0,1,2,3,4,5]', () => {
             // Arrange
-            const testArray = ['apple', 2.3];
-            const separator = null;
-            const initial = 'apple2.3';
+            const callback = (a, b) => a.concat(b);
+            const testArray = [
+                [0, 1],
+                [2, 3],
+                [4, 5],
+            ];
+            const initial = [0, 1, 2, 3, 4, 5];
             // Act
-            const result = join(testArray, separator);
+            const result = reduce(callback, testArray);
+            // Assert
+            expect(result).toStrictEqual(initial);
+        });
+    });
+    describe('When receive (a,b)=>a+b, [5]', () => {
+        test('Then should be 5', () => {
+            // Arrange
+            const callback = (a, b) => a.concat(b);
+            const testArray = [5];
+            const initial = 5;
+            // Act
+            const result = reduce(callback, testArray);
             // Assert
             expect(result).toBe(initial);
         });
     });
-    describe('When receive ["apple", 2.3], undefined', () => {
-        test('Then should be "apple2.3"', () => {
+    describe('When receive (a,b)=>a+b, [], 4', () => {
+        test('Then should be 4', () => {
             // Arrange
-            const testArray = ['apple', 2.3];
-            const separator = null;
-            const initial = 'apple2.3';
-            // Act
-            const result = join(testArray, separator);
-            // Assert
-            expect(result).toBe(initial);
-        });
-    });
-    describe('When receive [], ""', () => {
-        test('Then should be ""', () => {
-            // Arrange
-            const testArray = [];
-            const separator = '';
-            const initial = '';
-            // Act
-            const result = join(testArray, separator);
-            // Assert
-            expect(result).toBe(initial);
-        });
-    });
-    describe('When receive ["apple", 2.3], ", "', () => {
-        test('Then should be "apple, 2.3"', () => {
-            // Arrange
-            const testArray = ['apple', 2.3];
-            const separator = ', ';
-            const initial = 'apple, 2.3';
-            // Act
-            const result = join(testArray, separator);
-            // Assert
-            expect(result).toBe(initial);
-        });
-    });
-    describe('When receive undefined, ""', () => {
-        test('Then should be ""', () => {
-            // Arrange
+            const callback = (a, b) => a.concat(b);
             const testArray = undefined;
-            const separator = '';
-            const initial = '';
-            // Act
-            const result = join(testArray, separator);
-            // Assert
-            expect(result).toBe(initial);
+            const initialValue = 4;
+            // Act & Assert
+            expect(() => reduce(callback, testArray, initialValue)).toThrow(
+                TypeError
+            );
         });
     });
 });
-
-const test = reduce((a, b) => a + b, [0, 1, 2, 3]);
-console.log(test);
-
-const test2 = reduce(
-    (a, b) => a.concat(b),
-    [
-        [0, 1],
-        [2, 3],
-        [4, 5],
-    ]
-);
-console.log(test2);
