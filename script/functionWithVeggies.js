@@ -1,4 +1,12 @@
-export const falseLength = (arr) => arr.length;
+export const falseLength = (arr) => {
+    if (typeof arr === 'string' || typeof arr === 'number') {
+        const error = new RangeError('This is not an array');
+        error.message = 'No has introducido una array';
+        throw error;
+    } else {
+        return arr.length;
+    }
+};
 
 export const falsePush = (arr, item) => {
     let myArray = [...arr];
