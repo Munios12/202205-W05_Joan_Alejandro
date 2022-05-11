@@ -1,4 +1,10 @@
-import { falseLength, falsePush } from './functionWithVeggies';
+import {
+    falseLength,
+    falsePop,
+    falsePush,
+    falseShift,
+    falseUnshift,
+} from './functionWithVeggies';
 
 describe('Given the function falseLength()', () => {
     describe('When receive an array', () => {
@@ -18,6 +24,40 @@ describe('Given the function falsePush()', () => {
             const item = 6;
             const expectedResult = [1, 2, 3, 4, 5, 6];
             const result = falsePush(arrayTest, item);
+            expect(result).toEqual(expectedResult);
+        });
+    });
+});
+
+describe('Given the function falsePop()', () => {
+    describe('When receive an array', () => {
+        test('Should return same array - last item ', () => {
+            const arrayTest = [1, 2, 3, 4, 5];
+            const expectedResult = [1, 2, 3, 4];
+            const result = falsePop(arrayTest);
+            expect(result).toEqual(expectedResult);
+        });
+    });
+});
+
+describe('Given the function falseShift()', () => {
+    describe('When receive an array', () => {
+        test('Should return same array - first item ', () => {
+            const arrayTest = [1, 2, 3, 4, 5];
+            const expectedResult = [2, 3, 4, 5];
+            const result = falseShift(arrayTest);
+            expect(result).toEqual(expectedResult);
+        });
+    });
+});
+
+describe('Given the function falseUnshift()', () => {
+    describe('When receive an array', () => {
+        test('Should return same array + item in index = [0] ', () => {
+            const arrayTest = [2, 3, 4, 5];
+            const item = 1;
+            const expectedResult = [1, 2, 3, 4, 5];
+            const result = falseUnshift(arrayTest, item);
             expect(result).toEqual(expectedResult);
         });
     });
