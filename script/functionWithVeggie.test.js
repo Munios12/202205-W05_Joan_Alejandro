@@ -57,6 +57,29 @@ describe('Given the function falsePush()', () => {
             expect(result).toEqual(expectedResult);
         });
     });
+
+    describe('When receive an empty array', () => {
+        test('Should return same array + item ', () => {
+            const arrayTest = [];
+            const item = 6;
+            const expectedResult = [6];
+            const result = falsePush(arrayTest, item);
+            expect(result).toEqual(expectedResult);
+        });
+    });
+
+    describe('When receive an array but no item', () => {
+        test('Should throw an exception ', () => {
+            const arrayTest = [1, 2, 3, 4];
+            expect(() => falsePush(arrayTest)).toThrow(RangeError);
+        });
+    });
+
+    describe('When we receive nothing', () => {
+        test('Should throw an exception ', () => {
+            expect(() => falsePush()).toThrow(RangeError);
+        });
+    });
 });
 
 describe('Given the function falsePop()', () => {
