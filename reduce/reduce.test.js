@@ -49,7 +49,7 @@ describe('Given the function reduce', () => {
             const initialValue = 4;
             // Act & Assert
             expect(() => reduce(callback, testArray, initialValue)).toThrow(
-                TypeError
+                TypeError('Array is not defined')
             );
         });
     });
