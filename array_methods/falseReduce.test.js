@@ -1,6 +1,6 @@
-import { reduce } from './reduce.js';
+import { falseReduce } from './falseReduce.js';
 
-describe('Given the function reduce', () => {
+describe('Given the function falseReduce', () => {
     describe('When receive (a,b)=>a+b, [0, 1, 2, 3]', () => {
         test('Then should be 6', () => {
             // Arrange
@@ -8,7 +8,7 @@ describe('Given the function reduce', () => {
             const testArray = [0, 1, 2, 3];
             const initial = 6;
             // Act
-            const result = reduce(func, testArray);
+            const result = falseReduce(func, testArray);
             // Assert
             expect(result).toBe(initial);
         });
@@ -24,7 +24,7 @@ describe('Given the function reduce', () => {
             ];
             const initial = [0, 1, 2, 3, 4, 5];
             // Act
-            const result = reduce(func, testArray);
+            const result = falseReduce(func, testArray);
             // Assert
             expect(result).toStrictEqual(initial);
         });
@@ -36,7 +36,7 @@ describe('Given the function reduce', () => {
             const testArray = [5];
             const initial = 5;
             // Act
-            const result = reduce(func, testArray);
+            const result = falseReduce(func, testArray);
             // Assert
             expect(result).toBe(initial);
         });
@@ -49,7 +49,7 @@ describe('Given the function reduce', () => {
             const initialV = 5;
             const initial = 5;
             // Act
-            const result = reduce(func, testArray, initialV);
+            const result = falseReduce(func, testArray, initialV);
             // Assert
             expect(result).toBe(initial);
         });
@@ -62,7 +62,7 @@ describe('Given the function reduce', () => {
             const initialV = 5;
             const initial = 15;
             // Act
-            const result = reduce(func, testArray, initialV);
+            const result = falseReduce(func, testArray, initialV);
             // Assert
             expect(result).toBe(initial);
         });
@@ -74,7 +74,7 @@ describe('Given the function reduce', () => {
             const testArray = undefined;
             const initialValue = 4;
             // Act & Assert
-            expect(() => reduce(func, testArray, initialValue)).toThrow(
+            expect(() => falseReduce(func, testArray, initialValue)).toThrow(
                 TypeError('Cannot reduce an undefined array')
             );
         });
@@ -85,7 +85,7 @@ describe('Given the function reduce', () => {
             const func = (a, b) => a.concat(b);
             const testArray = [];
             // Act & Assert
-            expect(() => reduce(func, testArray)).toThrow(
+            expect(() => falseReduce(func, testArray)).toThrow(
                 TypeError(
                     'Cannot reduce an empty array without an initial value'
                 )
@@ -98,7 +98,7 @@ describe('Given the function reduce', () => {
             const func = null;
             const testArray = [0, 1, 2];
             // Act & Assert
-            expect(() => reduce(func, testArray)).toThrow(
+            expect(() => falseReduce(func, testArray)).toThrow(
                 TypeError('func must be a function')
             );
         });

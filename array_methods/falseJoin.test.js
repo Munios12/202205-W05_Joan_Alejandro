@@ -1,6 +1,6 @@
-import { join } from './join.js';
+import { falseJoin } from './falseJoin.js';
 
-describe('Given the function join', () => {
+describe('Given the function falseJoin', () => {
     describe('When receive ["apple", 2.3], null', () => {
         test('Then should be "apple2.3"', () => {
             // Arrange
@@ -8,7 +8,7 @@ describe('Given the function join', () => {
             const separator = null;
             const initial = 'apple2.3';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });
@@ -20,7 +20,7 @@ describe('Given the function join', () => {
             const separator = null;
             const initial = 'apple2.3';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });
@@ -32,7 +32,7 @@ describe('Given the function join', () => {
             const separator = null;
             const initial = 'apple2.3';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });
@@ -44,7 +44,7 @@ describe('Given the function join', () => {
             const separator = '';
             const initial = '';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });
@@ -56,7 +56,7 @@ describe('Given the function join', () => {
             const separator = ', ';
             const initial = 'apple, 2.3';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });
@@ -68,7 +68,7 @@ describe('Given the function join', () => {
             const separator = '';
             const initial = '';
             // Act
-            const result = join(testArray, separator);
+            const result = falseJoin(testArray, separator);
             // Assert
             expect(result).toBe(initial);
         });

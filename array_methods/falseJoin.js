@@ -1,4 +1,4 @@
-export function join(array = [], separator = '') {
+export function falseJoin(array = [], separator = '') {
     if (separator === null || separator === undefined) {
         separator = '';
     }
@@ -12,6 +12,3 @@ export function join(array = [], separator = '') {
     }
     return joinString;
 }
-
-const test = join(['apple', 2.3], ', ');
-console.log(test);

@@ -1,4 +1,4 @@
-export function reduce(func, array, initialValue) {
+export function falseReduce(func, array, initialValue) {
     const myTypeError = new TypeError();
     if (typeof func !== 'function') {
         myTypeError.message = 'func must be a function';
