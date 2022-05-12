@@ -11,7 +11,11 @@ export function includes(array, value, fromIndex = 0) {
     } else if (typeof fromIndex !== 'number') {
         fromIndex = Number(fromIndex);
     }
-    // arr.length + fromIndex for negative values
+
+    if (value === -0 || value === +0) {
+        value = 0;
+    }
+
     if (fromIndex < 0) {
         fromIndex = array.length + fromIndex;
     }
@@ -24,7 +28,7 @@ export function includes(array, value, fromIndex = 0) {
     return false;
 }
 
-console.log('Test:');
-const testArray = ['apple', 1, null, undefined, 5, true];
-const searchElement = 1;
-console.log(includes(testArray, searchElement, -5));
+// console.log('Test:');
+// const testArray = ['apple', 1, null, undefined, 5, true];
+// const searchElement = 1;
+// console.log(includes(testArray, searchElement, -5));
