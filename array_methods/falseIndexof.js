@@ -1,4 +1,4 @@
-export function indexOf(array, searchElement, fromIndex = 0) {
+export function falseIndexOf(array, searchElement, fromIndex = 0) {
     const myTypeError = new TypeError();
     if (!Array.isArray(array)) {
         myTypeError.message = 'Cannot search in an undefined array';

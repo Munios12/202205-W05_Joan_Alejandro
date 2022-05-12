@@ -1,13 +1,13 @@
-import { includes } from './falseIncludes.js';
+import { falseIncludes } from './falseIncludes.js';
 
-describe('Given the function includes', () => {
+describe('Given the function falseIncludes', () => {
     describe('When receive ["apple", null, undefined, 5, true], 5', () => {
         test('Then should be true', () => {
             // Arrange
             const param = [['apple', null, undefined, 5, true], 5];
             const expectedResult = true;
             // Act
-            const result = includes(...param);
+            const result = falseIncludes(...param);
             // Assert
             expect(result).toBe(expectedResult);
         });
@@ -18,7 +18,7 @@ describe('Given the function includes', () => {
             const param = [['apple', null, undefined, 5, true], 5, '2'];
             const expectedResult = true;
             // Act
-            const result = includes(...param);
+            const result = falseIncludes(...param);
             // Assert
             expect(result).toBe(expectedResult);
         });
@@ -29,7 +29,7 @@ describe('Given the function includes', () => {
             const param = [['apple', null, undefined, 5, true], 5, -2];
             const expectedResult = true;
             // Act
-            const result = includes(...param);
+            const result = falseIncludes(...param);
             // Assert
             expect(result).toBe(expectedResult);
         });
@@ -40,7 +40,7 @@ describe('Given the function includes', () => {
             const param = [['apple', null, undefined, 5, true], 'pear', 1];
             const expectedResult = false;
             // Act
-            const result = includes(...param);
+            const result = falseIncludes(...param);
             // Assert
             expect(result).toBe(expectedResult);
         });
@@ -51,7 +51,7 @@ describe('Given the function includes', () => {
             const param = [['apple', null, undefined, 5, true], undefined];
             const expectedResult = true;
             // Act
-            const result = includes(...param);
+            const result = falseIncludes(...param);
             // Assert
             expect(result).toBe(expectedResult);
         });
@@ -61,7 +61,7 @@ describe('Given the function includes', () => {
             // Arrange
             const param = [undefined, 9, 0];
             // Act & Assert
-            expect(() => includes(...param)).toThrow(
+            expect(() => falseIncludes(...param)).toThrow(
                 TypeError('Cannot search in an undefined array')
             );
         });
@@ -71,7 +71,7 @@ describe('Given the function includes', () => {
             // Arrange
             const param = [[7, 5, 9, 9], 9, 'string'];
             // Act & Assert
-            expect(() => includes(...param)).toThrow(
+            expect(() => falseIncludes(...param)).toThrow(
                 TypeError('Not a valid index value')
             );
         });
