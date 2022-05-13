@@ -1,7 +1,8 @@
+// import { falsePush } from './falsePush.js';
 export function falseMap(callbackFn, array) {
     const myTypeError = new TypeError();
     if (typeof callbackFn !== 'function') {
-        myTypeError.message = 'callbackFn must be a function';
+        myTypeError.message = 'Not a valid function';
         throw myTypeError;
     }
 
@@ -12,7 +13,13 @@ export function falseMap(callbackFn, array) {
 
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[newArray.length] = callbackFn(array[i], i, array);
+        newArray.push(callbackFn(array[i], i, array));
     }
     return newArray;
 }
+
+// const fn = (e) => e * 2;
+// const testArray = [];
+// const result = falseMap(fn, testArray);
+// console.log(result);
+// console.log(typeof result);
